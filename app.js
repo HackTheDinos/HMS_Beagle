@@ -15,21 +15,6 @@
 
 }
 
- Card={
-        "id":0
-        "type": "",
-        "name": "",
-        "img": "",
-        "level": 0,
-        "points": 0,
-        "periods": [],
-        "terrain": [],
-        "flight": 0,
-        "description": "",
-        "play": "",
-        "effect": "",
-        "extinct": false
-}
 
  DinoGame = {
            app: {
@@ -57,7 +42,7 @@
               }
            },
            model:{
-             cards:[],//load all cards
+             cards: CARD_DATA.cards, //load all cards
              game:{}
            },
            dom:{}
