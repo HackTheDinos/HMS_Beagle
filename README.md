@@ -1,2 +1,2 @@
 # HMS_Beagle
-Paleo games - multiplatform 
+Paleo games - Mostly, built in JS with native wrappers for iOS and Android
