@@ -18,6 +18,8 @@ def main(args):
 def row_to_data(i, row):
     return {
         "id": i,
+        "count": make_int(row[1]),
+        "freq": clean(row[13]),
         "type": get_type(row),
         "name": clean(row[0]),
         "img": "",
@@ -27,8 +29,8 @@ def row_to_data(i, row):
         "terrain": get_terrain(row[2], row[3], row[4]),
         "flight": get_flight(row[10]), 
         "description": clean(row[12]),
-        "play": get_play(row[10]),
-        "effect": get_play(row[10]),
+        "rules": clean(row[10]),
+        "tidbit": clean(row[11]),
         "extinct": get_extinct(row[18])
     }
 
@@ -56,23 +58,11 @@ def get_terrain(ocean, fresh_water, land):
     return terrains
 
 def get_flight(effects):
-    flight_match = re.search("Flight: (\d)", clean(effects))
+    flight_match = re.search("flight: (\d)", clean(effects))
     if flight_match:
         return int(flight_match.group(1))
     return 0
-
-def get_play(effects):
-    match = re.search("(play|special restriction): (.+)", clean(effects))
-    if match:
-        return clean(match.group(2))
-    return ""
-    
-def get_effect(effects):
-    match = re.search("effect: (.+)", clean(effects))
-    if match:
-        return clean(match.group(1))
-    return ""
-    
+   
 def get_extinct(extinct):
     text = clean(extinct)
     if text == "extinct":
