@@ -54,7 +54,10 @@
                 return DinoGame.model.game.hand.splice(index, 1);
             },
             addCardToHand: function(card){
-                  DinoGame.model.game.hand.push(card);
+              DinoGame.model.game.hand.push(card);
+            },
+            getCardFromHand: function(index){
+              return DinoGame.model.game.hand[index];
             },
             handIdToCardId: function(handId){
               return parseInt(handId.replace('hand', ''));
@@ -62,8 +65,14 @@
             addCardToEvents: function(card){
                 DinoGame.model.game.events.push(card);
             },
+            getCardFromEvents: function(index){
+              return DinoGame.model.game.events[index];
+            },
             addCardToBoard: function(card, x, y){
                 DinoGame.model.game.board[x][y] = card;
+            },
+            getCardFromBoard: function(x, y){
+                DinoGame.model.game.board[x][y];
             },
             addCardToDiscard: function(card){
                 DinoGame.model.game.discard.push(card);
@@ -92,15 +101,43 @@
                 DinoGame.turnState.clickedType = undefined;
                 DinoGame.turnState.endTurn = false;
             },
-            /*
+            renderCard: function(card){
+              return $('<img class="card grow grow-hover" src="'+card.img'.png" alt="" />');
+            },
             renderBoard: function(){
-              var $board = $("#board");
               for (var x=0; x<DinoGame.model.game.board.length; x++){
-
+                for (var y=0; y<DinoGame.model.game.board[x].length; y++){
+                  var $cell = $('#board td[data-x="'+x+'"][data-y="'+y+'"]');
+                  $cell.html("");
+                  var card = DinoGame.app.getCardFromBoard(x, y);
+                  $img = DinoGame.app.renderCard(card);
+                  $cell.append($img);
+                }
               }
-              DinoGame.model.game.board
+            },
+            renderHand: function(){
+              for (var i=0; i<DinoGame.model.game.hand.length; i++){
+                var $div = $('#hand'+i);
+                $div.html("");
+                var card = DinoGame.app.getCardFromHand(i);
+                $img = DinoGame.app.renderCard(card);
+                $div.append($img);
+              }
+            },
+            renderEvents: function(){
+              for (var i=0; i<DinoGame.model.game.events.length; i++){
+                var $div = $('#events'+i);
+                $div.html("");
+                var card = DinoGame.app.getCardFromEvents(i);
+                $img = DinoGame.app.renderCard(card);
+                $div.append($img);
+              }
+            },
+            renderGame: function(){
+              DinoGame.app.renderBoard();
+              DinoGame.app.renderHand();
+              DinoGame.app.renderEvents();
             }
-            */
           },
           model:{
             cards: CARD_DATA.cards, //load all cards
