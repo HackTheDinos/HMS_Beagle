@@ -21,6 +21,7 @@
                 DinoGame.app.initDeck();
                 DinoGame.app.initHand();
                 DinoGame.app.initBoard();
+                DinoGame.app.updateFirebase();
              },
             initBoard: function(){
                 DinoGame.model.game.board=[
@@ -72,6 +73,9 @@
             },
             endTurnAndSendData: function(){
               DinoGame.app.clearTurnState();
+              DinoGame.app.updateFirebase();
+            },
+            updateFirebase: function(){
               var gameJson = DinoGame.app.gameStateToJson();
               ref.child('game').child(authData.uid).set(gameJson);
             },
