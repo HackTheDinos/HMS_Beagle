@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/game_board.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+  <div  class="row spacer">
+  </div>
+    <div class="col-md-3 hand">
+      <div class="row cardContainer" id='hand0'><img class="card grow grow-hover growLower " src="images/species/cockroach_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='hand1'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='hand2'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='hand3'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='hand4'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='hand5'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='hand6'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='hand7'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+    </div>
+
+    <div class="col-md-6">
+      <table id="board" class="table" class="table">
+        <tr>
+          <td data-x=0 data-y=0></td>
+          <td data-x=1 data-y=0></td>
+          <td data-x=2 data-y=0></td>
+          <td data-x=3 data-y=0></td>
+          <td data-x=4 data-y=0></td>
+          <td data-x=5 data-y=0></td>
+          <td data-x=6 data-y=0></td>
+          <td data-x=7 data-y=0></td>
+        </tr>
+        <tr>
+          <td data-x=0 data-y=1></td>
+          <td data-x=1 data-y=1></td>
+          <td data-x=2 data-y=1></td>
+          <td data-x=3 data-y=1></td>
+          <td data-x=4 data-y=1></td>
+          <td data-x=5 data-y=1></td>
+          <td data-x=6 data-y=1></td>
+          <td data-x=7 data-y=1></td>
+        </tr>
+        <tr>
+          <td data-x=0 data-y=2></td>
+          <td data-x=1 data-y=2></td>
+          <td data-x=2 data-y=2></td>
+          <td data-x=3 data-y=2></td>
+          <td data-x=4 data-y=2></td>
+          <td data-x=5 data-y=2></td>
+          <td data-x=6 data-y=2></td>
+          <td data-x=7 data-y=2></td>
+        </tr>
+        <tr>
+          <td data-x=0 data-y=3></td>
+          <td data-x=1 data-y=3></td>
+          <td data-x=2 data-y=3></td>
+          <td data-x=3 data-y=3></td>
+          <td data-x=4 data-y=3></td>
+          <td data-x=5 data-y=3></td>
+          <td data-x=6 data-y=3></td>
+          <td data-x=7 data-y=3></td>
+        </tr>
+        <tr>
+          <td data-x=0 data-y=4></td>
+          <td data-x=1 data-y=4></td>
+          <td data-x=2 data-y=4></td>
+          <td data-x=3 data-y=4></td>
+          <td data-x=4 data-y=4></td>
+          <td data-x=5 data-y=4></td>
+          <td data-x=6 data-y=4></td>
+          <td data-x=7 data-y=4></td>
+        </tr>
+        <tr>
+          <td data-x=0 data-y=5></td>
+          <td data-x=1 data-y=5></td>
+          <td data-x=2 data-y=5></td>
+          <td data-x=3 data-y=5></td>
+          <td data-x=4 data-y=5></td>
+          <td data-x=5 data-y=5></td>
+          <td data-x=6 data-y=5></td>
+          <td data-x=7 data-y=5></td>
+        </tr>
+        <tr>
+          <td data-x=0 data-y=6></td>
+          <td data-x=1 data-y=6></td>
+          <td data-x=2 data-y=6></td>
+          <td data-x=3 data-y=6></td>
+          <td data-x=4 data-y=6></td>
+          <td data-x=5 data-y=6></td>
+          <td data-x=6 data-y=6></td>
+          <td data-x=7 data-y=6></td>
+        </tr>
+        <tr>
+          <td data-x=0 data-y=7></td>
+          <td data-x=1 data-y=7></td>
+          <td data-x=2 data-y=7></td>
+          <td data-x=3 data-y=7></td>
+          <td data-x=4 data-y=7></td>
+          <td data-x=5 data-y=7></td>
+          <td data-x=6 data-y=7></td>
+          <td data-x=7 data-y=7></td>
+        </tr>
+
+      </table>
+
+    </div>
+    <div class="col-md-3 events">
+      <div class="row cardContainer" id='deck'><img class="card grow grow-hover growLower " src="images/species/dragonfly_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='graveyard'><img class="card grow grow-hover growLower " src="images/species/dragonfly_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='event1'></div>
+      <div class="row cardContainer" id='event2'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='event3'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='event4'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='event5'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+      <div class="row cardContainer" id='event6'><img class="card grow grow-hover" src="images/species/cockroach_sm.png" alt="" /></div>
+    </div>  </div>
+
+</div>
+
+
+</body>
+
+
+</html>
