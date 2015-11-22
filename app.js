@@ -56,18 +56,27 @@
   //enables start game button
   
 //draw card
+//click "deck" button
 
 //move
+//click card + then click table
+//or click and drag to table
 
 //discard
+//click card + then click discard pile
 
 //play event card
+//click card + then click event table cell
 
 //play creature card
+//click card + then click species table cell
 
 //remove card from board
+//click card + then click discard
 
 //end game  
+//click end game button
+//or activate when a player has no cards left
 
 
 
