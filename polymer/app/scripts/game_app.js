@@ -184,6 +184,9 @@
                 DinoGame.turnState.clickedType = undefined;
             },
             renderCard: function(card, location){
+              if (!card){
+                return;
+              }
               if (location == 'event'){
                 return $('<img class="eventCard grow grow-hover" src="'+card.img+'.png" alt="" />');
               } else if (location == 'hand'){
