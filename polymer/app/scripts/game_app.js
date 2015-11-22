@@ -50,10 +50,10 @@
                 DinoGame.model.game.deck.pop();
             },
             removeCardFromHand: function(index){
-                return DinoGame.model.hand.splice(index, 1);
+                return DinoGame.model.game.hand.splice(index, 1);
             },
             addCardToHand: function(card){
-                  DinoGame.model.hand.push(card);
+                  DinoGame.model.game.hand.push(card);
             },
             handIdToCardId: function(handId){
               return parseInt(handId.replace('hand', ''));
