@@ -14,16 +14,19 @@
 
  var DinoGame = {
            app: {
-            startGame:function(counterPartyUid, uid) {
-            console.log('qqq',counterPartyUid, uid);
-               //create new game
-                DinoGame.model.game=new GameTemplate();
+            startGame: function(counterPartyUid, uid) {
+                console.log('qqq', counterPartyUid, uid);
+                //create new game
+                DinoGame.model.game = new GameTemplate();
                 console.log(DinoGame);
                 DinoGame.app.initDeck();
                 DinoGame.app.initHand();
                 DinoGame.app.initBoard();
                 DinoGame.app.updateFirebase(counterPartyUid, uid);
-             },
+                ref.child('game').child(authData.uid).on('value', function(snapshotgame) {
+                    console.log('www', snapshotgame.val());
+                });
+            },
             initBoard: function(){
                 DinoGame.model.game.board=[
                 [0,0,0,0,0,0,0,0],
