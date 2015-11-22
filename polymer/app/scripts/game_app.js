@@ -141,7 +141,7 @@
                 return true;
               }
               return false;
-            }
+            },
             getClickedCard: function(){
                 return DinoGame.turnState.clickedId !== undefined;
             },
@@ -167,9 +167,9 @@
             },
             renderCard: function(card, is_event){
               if (is_event){
-                return $('<img class="eventCard grow grow-hover" src="'+card.img'.png" alt="" />');
+                return $('<img class="eventCard grow grow-hover" src="'+card.img+'.png" alt="" />');
               }else{
-                return $('<img class="card grow grow-hover" src="'+card.img'.png" alt="" />');
+                return $('<img class="card grow grow-hover" src="'+card.img+'.png" alt="" />');
               }
             },
             renderBoard: function(){
