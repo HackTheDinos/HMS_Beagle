@@ -7,6 +7,7 @@
      this.events = [];
      this.deck = [];
      this.discard = [];
+     this.active_player = undefined;
  };
 
 //console.log(new GameTemplate());
@@ -69,11 +70,33 @@
             getClickedCard: function(){
                 return DinoGame.turn_state.clicked_id !== undefined;
             },
+            endTurnAndSendData: function(){
+              DinoGame.app.clearTurnState();
+              var game_json = DinoGame.app.gameStateToJson();
+              ref.child('game').child(authData.uid).set(game_json);
+            },
+            gameStateToJson: function(){
+              return {
+                "board": DinoGame.model.game.board,
+                "deck": DinoGame.model.game.deck,
+                "discard": DinoGame.model.game.discard,
+                "events": DinoGame.mode.game.events
+              }
+            },
             clearTurnState: function(){
                 DinoGame.turn_state.clicked_id = undefined;
                 DinoGame.turn_state.clicked_type = undefined;
                 DinoGame.turn_state.end_turn = false;
+            },
+            /*
+            renderBoard: function(){
+              var $board = $("#board");
+              for (var x=0; x<DinoGame.model.game.board.length; x++){
+
+              }
+              DinoGame.model.game.board
             }
+            */
           },
           model:{
             cards: CARD_DATA.cards, //load all cards
