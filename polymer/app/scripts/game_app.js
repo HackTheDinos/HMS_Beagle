@@ -35,19 +35,19 @@
             },
             initDeck:function() {
                 //create deck of random cards (40)
-                for(int i=0<i<38;i++)
+                for(var i=0; i<38;i++)
                 {
                     DinoGame.model.game.deck.push(DinoGame.model.cards.pop());
                 }
             },
             initHand: function(){
-                for(int i=0<i<6;i++)
+                for(var i=0; i<6;i++)
                 {
                   DinoGame.app.addCardToHand(DinoGame.app.drawCard());
                 }
             },
             drawCard: function(){
-                DinoGame.model.game.deck.pop()
+                DinoGame.model.game.deck.pop();
             },
             removeCardFromHand: function(index){
                 return DinoGame.model.hand.splice(index, 1);
@@ -56,7 +56,7 @@
                   DinoGame.model.hand.push(card);
             },
             handIdToCardId: function(hand_id){
-              return int(hand_id.replace("hand", ""));
+              return parseInt(hand_id.replace('hand', ''));
             },
             addCardToEvents: function(card){
                 DinoGame.model.game.events.push(card);
@@ -77,11 +77,11 @@
             },
             gameStateToJson: function(){
               return {
-                "board": DinoGame.model.game.board,
-                "deck": DinoGame.model.game.deck,
-                "discard": DinoGame.model.game.discard,
-                "events": DinoGame.mode.game.events
-              }
+                'board': DinoGame.model.game.board,
+                'deck': DinoGame.model.game.deck,
+                'discard': DinoGame.model.game.discard,
+                'events': DinoGame.mode.game.events
+              };
             },
             clearTurnState: function(){
                 DinoGame.turn_state.clicked_id = undefined;
@@ -118,7 +118,7 @@
   
 //draw card
 //click "deck" button, draw card
-$("#deck").click(function(){
+$('#deck').click(function(){
   var new_card = DinoGame.app.drawCardFromDeck();
   DinoGame.app.addCardToHand(new_card);
 });
@@ -127,32 +127,32 @@ $("#deck").click(function(){
 //play creature card
 //remove card from board
 //play event card
-$(".hand .species .card").click(function(){
-  console.log("clicked species card in hand");
+$('.hand .species .card').click(function(){
+  console.log('clicked species card in hand');
   DinoGame.turn_state.clicked_id = this.id;
-  DinoGame.turn_state.clicked_type = "species";
+  DinoGame.turn_state.clicked_type = 'species';
 });
 
-$(".hand .event .card").click(function(){
-  console.log("clicked event card in hand");
-  if (DinoGame.turn_state.clicked_id !== undefined && DinoGame.turn_state.clicked_type == "event"){
+$('.hand .event .card').click(function(){
+  console.log('clicked event card in hand');
+  if (DinoGame.turn_state.clicked_id !== undefined && DinoGame.turn_state.clicked_type === 'event'){
     var id = DinoGame.app.handIdToCardId(DinoGame.turn_state.clicked_id);
     var card = DinoGame.app.removeCardFromHand(id);
     DinoGame.app.addCardToEvents(card);
     DinoGame.turn_state.end_turn = true;
   }else{
     DinoGame.turn_state.clicked_id = this.id;
-    DinoGame.turn_state.clicked_type = "event";
+    DinoGame.turn_state.clicked_type = 'event';
   }
 });
 
-$("#board td").click(function(){
-  console.log("clicked board");
-  if (DinoGame.turn_state.clicked_type == "species"){
+$('#board td').click(function(){
+  console.log('clicked board');
+  if (DinoGame.turn_state.clicked_type === 'species'){
     var id = DinoGame.app.handIdToCardId(DinoGame.turn_state.clicked_id);
     var card = DinoGame.app.removeCardFromHand(id);
-    var cell_x = $(this).data("x");
-    var cell_y = $(this).data("y");
+    var cell_x = $(this).data('x');
+    var cell_y = $(this).data('y');
     DinoGame.app.addCardToBoard(card, cell_x, cell_y);
     DinoGame.turn_state.end_turn = true;
   }
@@ -160,8 +160,8 @@ $("#board td").click(function(){
 
 //discard
 //click card + then click discard pile
-$(".discard").click(function(){
-  console.log("clicked discard");
+$('.discard').click(function(){
+  console.log('clicked discard');
   if (DinoGame.turn_state.clicked_id !== undefined){
     var id = DinoGame.app.handIdToCardId(DinoGame.turn_state.clicked_id);
     var card = DinoGame.app.removeCardFromHand(id);
