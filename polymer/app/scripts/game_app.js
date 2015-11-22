@@ -145,7 +145,7 @@
             getClickedCard: function(){
                 return DinoGame.turnState.clickedId !== undefined;
             },
-            endTurnAndSendData: function(){
+            endTurnAndUpdateFirebase: function(){
               DinoGame.app.clearTurnState();
               DinoGame.app.updateFirebase();
             },
@@ -297,7 +297,9 @@ $('#graveyard').click(function(){
 });
 
 
-//end game  
-//click end game button
-//or activate when a player has no cards left
+//end turn 
+//click end turn button
+$('#end-turn').click(function(){
+  DinoGame.app.endTurnAndUpdateFirebase();
+});
 
