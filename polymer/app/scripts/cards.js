@@ -1,7 +1,5 @@
 var CARD_DATA = {
-  "cards": [
-    
-    {
+  "homeCards":[{
       "tidbit": "n/a",
       "flight": 0,
       "description": "On each turn: 1. pick one card, and 2. choose three of these five actions: Start a food chain; Add to a food chain; Play an event card; Move a card; Discard a card.",
@@ -20,9 +18,9 @@ var CARD_DATA = {
       "points": 2,
       "extinct": false,
       "type": "home"
-    },
+    }],
     
-    
+  "cards": [
     {
       "tidbit": "n/a",
       "flight": 2,
@@ -474,30 +472,6 @@ var CARD_DATA = {
       "points": null,
       "extinct": false,
       "type": "event"
-    },
-    {
-      "tidbit": "n/a",
-      "flight": 0,
-      "description": "n/a",
-      "rules": "n/a",
-      "terrain": [
-        "ocean",
-        "fresh_water",
-        "land"
-      ],
-      "periods": [
-        "jurassic",
-        "cretaceous"
-      ],
-      "freq": "n/a",
-      "id": 21,
-      "count": 2,
-      "name": "home",
-      "img": "",
-      "level": null,
-      "points": 2,
-      "extinct": false,
-      "type": "home"
     },
     {
       "tidbit": "pterosaurs were the first vertebrates (animals with backbones) to have powered flight.",
