@@ -14,7 +14,6 @@ img {
 td {
   border: 2px solid white;
   height: 70px;
-
 }
 
 p {
@@ -42,17 +41,25 @@ p {
 
 }
 
-.card{
-  float: right;
-}
-
-.eventCard{
+.handCard, .eventCard {
   float: right;
 }
 
 .grow {
   transition: all .2s ease-in-out;
+  z-index: 1;
+  position: relative;
 }
 
+.handCard .grow:hover {
+  transform: scale(10.0) translateX(1.5em);
+  }
 
-.grow:hover { transform: scale(7.0); }
+
+.eventCard .grow:hover {
+    transform: scale(10.0) translateX(-1.5em);
+}
+
+.boardCard .grow:hover {
+  transform: scale(10.0);
+}
