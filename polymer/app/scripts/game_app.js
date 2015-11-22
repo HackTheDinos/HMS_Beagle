@@ -7,7 +7,7 @@
      this.events = [];
      this.deck = [];
      this.discard = [];
-     this.active_player = undefined;
+     this.activePlayer = undefined;
  };
 
 //console.log(new GameTemplate());
@@ -55,8 +55,8 @@
             addCardToHand: function(card){
                   DinoGame.model.hand.push(card);
             },
-            handIdToCardId: function(hand_id){
-              return parseInt(hand_id.replace('hand', ''));
+            handIdToCardId: function(handId){
+              return parseInt(handId.replace('hand', ''));
             },
             addCardToEvents: function(card){
                 DinoGame.model.game.events.push(card);
@@ -68,12 +68,12 @@
                 DinoGame.model.game.discard.push(card);
             },
             getClickedCard: function(){
-                return DinoGame.turn_state.clicked_id !== undefined;
+                return DinoGame.turnState.clickedId !== undefined;
             },
             endTurnAndSendData: function(){
               DinoGame.app.clearTurnState();
-              var game_json = DinoGame.app.gameStateToJson();
-              ref.child('game').child(authData.uid).set(game_json);
+              var gameJson = DinoGame.app.gameStateToJson();
+              ref.child('game').child(authData.uid).set(gameJson);
             },
             gameStateToJson: function(){
               return {
@@ -84,9 +84,9 @@
               };
             },
             clearTurnState: function(){
-                DinoGame.turn_state.clicked_id = undefined;
-                DinoGame.turn_state.clicked_type = undefined;
-                DinoGame.turn_state.end_turn = false;
+                DinoGame.turnState.clickedId = undefined;
+                DinoGame.turnState.clickedType = undefined;
+                DinoGame.turnState.endTurn = false;
             },
             /*
             renderBoard: function(){
@@ -102,10 +102,10 @@
             cards: CARD_DATA.cards, //load all cards
             game:{}
           },
-          turn_state: {
-            clicked_id: undefined,
-            clicked_type: undefined,
-            end_turn:false
+          turnState: {
+            clickedId: undefined,
+            clickedType: undefined,
+            endTurn:false
           },
           dom:{}
   };
@@ -119,8 +119,8 @@
 //draw card
 //click "deck" button, draw card
 $('#deck').click(function(){
-  var new_card = DinoGame.app.drawCardFromDeck();
-  DinoGame.app.addCardToHand(new_card);
+  var newCard = DinoGame.app.drawCardFromDeck();
+  DinoGame.app.addCardToHand(newCard);
 });
 
 //move
@@ -129,32 +129,32 @@ $('#deck').click(function(){
 //play event card
 $('.hand .species .card').click(function(){
   console.log('clicked species card in hand');
-  DinoGame.turn_state.clicked_id = this.id;
-  DinoGame.turn_state.clicked_type = 'species';
+  DinoGame.turnState.clickedId = this.id;
+  DinoGame.turnState.clickedType = 'species';
 });
 
 $('.hand .event .card').click(function(){
   console.log('clicked event card in hand');
-  if (DinoGame.turn_state.clicked_id !== undefined && DinoGame.turn_state.clicked_type === 'event'){
-    var id = DinoGame.app.handIdToCardId(DinoGame.turn_state.clicked_id);
+  if (DinoGame.turnState.clickedId !== undefined && DinoGame.turnState.clickedType === 'event'){
+    var id = DinoGame.app.handIdToCardId(DinoGame.turnState.clickedId);
     var card = DinoGame.app.removeCardFromHand(id);
     DinoGame.app.addCardToEvents(card);
-    DinoGame.turn_state.end_turn = true;
+    DinoGame.turnState.endTurn = true;
   }else{
-    DinoGame.turn_state.clicked_id = this.id;
-    DinoGame.turn_state.clicked_type = 'event';
+    DinoGame.turnState.clickedId = this.id;
+    DinoGame.turnState.clickedType = 'event';
   }
 });
 
 $('#board td').click(function(){
   console.log('clicked board');
-  if (DinoGame.turn_state.clicked_type === 'species'){
-    var id = DinoGame.app.handIdToCardId(DinoGame.turn_state.clicked_id);
+  if (DinoGame.turnState.clickedType === 'species'){
+    var id = DinoGame.app.handIdToCardId(DinoGame.turnState.clickedId);
     var card = DinoGame.app.removeCardFromHand(id);
-    var cell_x = $(this).data('x');
-    var cell_y = $(this).data('y');
-    DinoGame.app.addCardToBoard(card, cell_x, cell_y);
-    DinoGame.turn_state.end_turn = true;
+    var cellX = $(this).data('x');
+    var cellY = $(this).data('y');
+    DinoGame.app.addCardToBoard(card, cellX, cellY);
+    DinoGame.turnState.endTurn = true;
   }
 });
 
@@ -162,8 +162,8 @@ $('#board td').click(function(){
 //click card + then click discard pile
 $('.discard').click(function(){
   console.log('clicked discard');
-  if (DinoGame.turn_state.clicked_id !== undefined){
-    var id = DinoGame.app.handIdToCardId(DinoGame.turn_state.clicked_id);
+  if (DinoGame.turnState.clickedId !== undefined){
+    var id = DinoGame.app.handIdToCardId(DinoGame.turnState.clickedId);
     var card = DinoGame.app.removeCardFromHand(id);
     DinoGame.app.addCardToDiscard(card);
   }
