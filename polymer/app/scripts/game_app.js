@@ -165,11 +165,13 @@
                 DinoGame.turnState.clickedId = undefined;
                 DinoGame.turnState.clickedType = undefined;
             },
-            renderCard: function(card, isEvent){
-              if (isEvent){
+            renderCard: function(card, location){
+              if (location == 'event'){
                 return $('<img class="eventCard grow grow-hover" src="'+card.img+'.png" alt="" />');
-              }else{
-                return $('<img class="card grow grow-hover" src="'+card.img+'.png" alt="" />');
+              } else if (location == 'hand'){
+                return $('<img class="handCard grow grow:hover" src="'+card.img+'.png" alt="" />');
+              } else {
+                return $('<img class="boardCard grow grow:hover" src='+card.img+'.png" alt="" />');
               }
             },
             renderBoard: function(){
@@ -178,7 +180,7 @@
                   var $cell = $('#board td[data-x="'+x+'"][data-y="'+y+'"]');
                   $cell.html('');
                   var card = DinoGame.app.getCardFromBoard(x, y);
-                  var $img = DinoGame.app.renderCard(card);
+                  var $img = DinoGame.app.renderCard(card, 'board');
                   $cell.append($img);
                 }
               }
@@ -188,7 +190,7 @@
                 var $div = $('#hand'+i);
                 $div.html('');
                 var card = DinoGame.app.getCardFromHand(i);
-                var $img = DinoGame.app.renderCard(card);
+                var $img = DinoGame.app.renderCard(card, 'hand');
                 $div.append($img);
               }
             },
@@ -197,7 +199,7 @@
                 var $div = $('#events'+i);
                 $div.html('');
                 var card = DinoGame.app.getCardFromEvents(i);
-                var $img = DinoGame.app.renderCard(card, true);
+                var $img = DinoGame.app.renderCard(card, 'event');
                 $div.append($img);
               }
             },
@@ -212,7 +214,7 @@
             },
             handleEventCardClickedInHand: function(card){
               console.log('clicked event card in hand');
-              if (DinoGame.turnState.clickedCard !== undefined && 
+              if (DinoGame.turnState.clickedCard !== undefined &&
                   DinoGame.turnState.clickedCard.type === 'event' &&
                   DinoGame.turnState.clickedCard.id === card.id
                   ){
@@ -233,12 +235,12 @@
           dom:{}
   };
 
-  
+
 //end game
   //count scores
   //displays who wins
   //enables start game button
-  
+
 //draw card
 //click "deck" button, draw card
 $('#deck').click(function(){
@@ -297,9 +299,8 @@ $('#graveyard').click(function(){
 });
 
 
-//end turn 
+//end turn
 //click end turn button
 $('#end-turn').click(function(){
   DinoGame.app.endTurnAndUpdateFirebase();
 });
-
