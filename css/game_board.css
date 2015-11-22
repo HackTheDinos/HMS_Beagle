@@ -17,6 +17,12 @@ td {
 
 }
 
+p {
+  text-align: center;
+  color: white;
+  font-size: 2em;
+}
+
 .table {
   /*max-width: 40%;
   max-height: 60%;*/
@@ -27,7 +33,6 @@ td {
 }
 
 .spacer {
-  margin: 20px;
 }
 
 .cardContainer {
@@ -38,6 +43,10 @@ td {
 }
 
 .card{
+  float: right;
+}
+
+.eventCard{
   float: right;
 }
 
