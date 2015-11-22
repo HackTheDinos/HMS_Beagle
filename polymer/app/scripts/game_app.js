@@ -50,13 +50,13 @@
             drawCard: function(){
                 DinoGame.model.game.deck.pop();
             },
-            removeCardFromGame: function(card_id){
-              var success = removeCardWithIdFromHand(index);
+            removeCardFromGame: function(cardId){
+              var success = DinoGame.app.removeCardWithIdFromHand(cardId);
               if (!success){
-                success = removeCardWithIdFromEvents(index);
+                success = DinoGame.app.removeCardWithIdFromEvents(cardId);
               }
               if (!success){
-                success = removeCardWithIdFromBoard(index);
+                success = DinoGame.app.removeCardWithIdFromBoard(cardId);
               }
               return success;
             },
@@ -69,17 +69,17 @@
             removeCardFromHand(index){
                 DinoGame.model.game.hand.splice(index, 1);
             },
-            removeCardWithIdFromHand: function(card_id){
-              var remove_index = -1;
-              for (var i=0; i<DinoGame.mode.game.hand.length; i++){
+            removeCardWithIdFromHand: function(cardId){
+              var removeIndex = -1;
+              for (var i=0; i<DinoGame.model.game.hand.length; i++){
                 var card = DinoGame.app.getCardFromHand(i);
-                if (card.id == card_id){
-                  remove_index = i;
+                if (card.id === cardId){
+                  removeIndex = i;
                   break;
                 }
               }
-              if (remove_index >= 0){
-                DinoGame.app.removeCardFromHand(remove_index);
+              if (removeIndex >= 0){
+                DinoGame.app.removeCardFromHand(removeIndex);
                 return true;
               }
               return false;
@@ -96,17 +96,17 @@
             removeCardFromEvents(index){
                 DinoGame.model.game.events.splice(index, 1);
             },
-            removeCardWithIdFromEvents: function(card_id){
-              var remove_index = -1;
+            removeCardWithIdFromEvents: function(cardId){
+              var removeIndex = -1;
               for (var i=0; i<DinoGame.mode.game.events.length; i++){
                 var card = DinoGame.app.getCardFromEvents(i);
-                if (card.id == card_id){
-                  remove_index = i;
+                if (card.id === cardId){
+                  removeIndex = i;
                   break;
                 }
               }
-              if (remove_index >= 0){
-                DinoGame.app.removeCardFromEvents(remove_index);
+              if (removeIndex >= 0){
+                DinoGame.app.removeCardFromEvents(removeIndex);
                 return true;
               }
               return false;
@@ -123,21 +123,21 @@
             addCardToDiscard: function(card){
                 DinoGame.model.game.discard.push(card);
             },
-            removeCardWithIdFromBoard: function(card_id){
-              var remove_x = -1;
-              var remove_y = -1;
+            removeCardWithIdFromBoard: function(cardId){
+              var removeX = -1;
+              var removeY = -1;
               for (var x=0; x<DinoGame.model.game.board.length; x++){
                 for (var y=0; y<DinoGame.model.game.board[x].length; y++){
                   var card = DinoGame.app.getCardFromBoard(x, y);
-                  if (card.id == card_id){
-                    remove_x = x;
-                    remove_y = y;
+                  if (card.id === cardId){
+                    removeX = x;
+                    removeY = y;
                     break;
                   }
                 }
               }
-              if (remove_x >= 0 && remove_y >= 0){
-                DinoGame.app.removeCardFromBoard(remove_x, remove_y);
+              if (removeX >= 0 && removeY >= 0){
+                DinoGame.app.removeCardFromBoard(removeX, removeY);
                 return true;
               }
               return false;
@@ -165,8 +165,8 @@
                 DinoGame.turnState.clickedId = undefined;
                 DinoGame.turnState.clickedType = undefined;
             },
-            renderCard: function(card, is_event){
-              if (is_event){
+            renderCard: function(card, isEvent){
+              if (isEvent){
                 return $('<img class="eventCard grow grow-hover" src="'+card.img+'.png" alt="" />');
               }else{
                 return $('<img class="card grow grow-hover" src="'+card.img+'.png" alt="" />');
@@ -176,9 +176,9 @@
               for (var x=0; x<DinoGame.model.game.board.length; x++){
                 for (var y=0; y<DinoGame.model.game.board[x].length; y++){
                   var $cell = $('#board td[data-x="'+x+'"][data-y="'+y+'"]');
-                  $cell.html("");
+                  $cell.html('');
                   var card = DinoGame.app.getCardFromBoard(x, y);
-                  $img = DinoGame.app.renderCard(card);
+                  var $img = DinoGame.app.renderCard(card);
                   $cell.append($img);
                 }
               }
@@ -186,18 +186,18 @@
             renderHand: function(){
               for (var i=0; i<DinoGame.model.game.hand.length; i++){
                 var $div = $('#hand'+i);
-                $div.html("");
+                $div.html('');
                 var card = DinoGame.app.getCardFromHand(i);
-                $img = DinoGame.app.renderCard(card);
+                var $img = DinoGame.app.renderCard(card);
                 $div.append($img);
               }
             },
             renderEvents: function(){
               for (var i=0; i<DinoGame.model.game.events.length; i++){
                 var $div = $('#events'+i);
-                $div.html("");
+                $div.html('');
                 var card = DinoGame.app.getCardFromEvents(i);
-                $img = DinoGame.app.renderCard(card, true);
+                var $img = DinoGame.app.renderCard(card, true);
                 $div.append($img);
               }
             },
@@ -214,7 +214,7 @@
               console.log('clicked event card in hand');
               if (DinoGame.turnState.clickedCard !== undefined && 
                   DinoGame.turnState.clickedCard.type === 'event' &&
-                  DinoGame.turnState.clickedCard.id == card.id
+                  DinoGame.turnState.clickedCard.id === card.id
                   ){
                 DinoGame.app.removeCardFromGame(card.id);
                 DinoGame.app.addCardToEvents(card);
@@ -242,7 +242,7 @@
 //draw card
 //click "deck" button, draw card
 $('#deck').click(function(){
-  console.log("clicked deck");
+  console.log('clicked deck');
   var newCard = DinoGame.app.drawCardFromDeck();
   DinoGame.app.addCardToHand(newCard);
 });
@@ -252,9 +252,9 @@ $('#deck').click(function(){
 //remove card from board
 //play event card
 $('.hand .cardContainer').click(function(){
-  var card_id = DinoGame.app.handIdToIndex(this.id);
-  var card = DinoGame.app.getCardFromHand(card_id);
-  }if (card.type == 'event'){
+  var cardId = DinoGame.app.handIdToIndex(this.id);
+  var card = DinoGame.app.getCardFromHand(cardId);
+  if (card.type === 'event'){
     DinoGame.app.handleEventCardClickedInHand(card);
   }else{
     DinoGame.app.setClickedCard(card);
@@ -262,8 +262,8 @@ $('.hand .cardContainer').click(function(){
 });
 
 $('.events .event').click(function(){
-  var card_id = DinoGame.app.eventIdToIndex(this.id);
-  var card = DinoGame.app.getCardFromEvents(card_id);
+  var cardId = DinoGame.app.eventIdToIndex(this.id);
+  var card = DinoGame.app.getCardFromEvents(cardId);
   DinoGame.app.setClickedCard(card);
 });
 
