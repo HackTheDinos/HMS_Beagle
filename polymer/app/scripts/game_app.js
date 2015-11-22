@@ -1,3 +1,6 @@
+// #!/usr/bin/env node
+
+
 var CARD_DATA = {
   "cards": [
     {
@@ -15,7 +18,7 @@ var CARD_DATA = {
       "id": 0,
       "count": 1,
       "name": "dimorphodon macronyx",
-      "img": "images/species/dimorphodon_macronyx",
+      "img": "",
       "level": 3,
       "points": 5,
       "extinct": true,
@@ -36,7 +39,7 @@ var CARD_DATA = {
       "id": 1,
       "count": 1,
       "name": "jeholopterus ningchengensis",
-      "img": "images/species/jehelopterus_ningchengensis",
+      "img": "",
       "level": 3,
       "points": 4,
       "extinct": true,
@@ -57,7 +60,7 @@ var CARD_DATA = {
       "id": 2,
       "count": 1,
       "name": "pteranodon longiceps",
-      "img": "images/species/pteranodon_longiceps",
+      "img": "",
       "level": 3,
       "points": 5,
       "extinct": true,
@@ -79,7 +82,7 @@ var CARD_DATA = {
       "id": 3,
       "count": 1,
       "name": "pterodaustro guinazui",
-      "img": "images/species/pterodaustro_guinazui",
+      "img": "",
       "level": 3,
       "points": 4,
       "extinct": true,
@@ -101,7 +104,7 @@ var CARD_DATA = {
       "id": 4,
       "count": 1,
       "name": "quetzalcoatlus northropi",
-      "img": "images/species/quetzalcoatlus_northropi",
+      "img": "",
       "level": 3,
       "points": 7,
       "extinct": true,
@@ -123,7 +126,7 @@ var CARD_DATA = {
       "id": 5,
       "count": 1,
       "name": "tupuxuara leonardii",
-      "img": "images/species/tuppuxuara_leonardii",
+      "img": "",
       "level": 3,
       "points": 5,
       "extinct": true,
@@ -144,7 +147,7 @@ var CARD_DATA = {
       "id": 6,
       "count": 2,
       "name": "aeger elegans",
-      "img": "images/species/aeger_elegans",
+      "img": "",
       "level": 1,
       "points": 1,
       "extinct": true,
@@ -165,7 +168,7 @@ var CARD_DATA = {
       "id": 7,
       "count": 1,
       "name": "beurlenia",
-      "img": "images/species/beurlenia",
+      "img": "",
       "level": 1,
       "points": 1,
       "extinct": true,
@@ -187,7 +190,7 @@ var CARD_DATA = {
       "id": 8,
       "count": 2,
       "name": "brachyphyllum",
-      "img": "images/species/brachyphyllum",
+      "img": "",
       "level": 1,
       "points": 1,
       "extinct": true,
@@ -209,7 +212,7 @@ var CARD_DATA = {
       "id": 9,
       "count": 2,
       "name": "clam",
-      "img": "images/species/clam",
+      "img": "",
       "level": 1,
       "points": 1,
       "extinct": false,
@@ -230,7 +233,7 @@ var CARD_DATA = {
       "id": 10,
       "count": 1,
       "name": "ginkgo",
-      "img": "images/species/ginkgo",
+      "img": "",
       "level": 1,
       "points": 1,
       "extinct": false,
@@ -251,7 +254,7 @@ var CARD_DATA = {
       "id": 11,
       "count": 1,
       "name": "gnetales",
-      "img": "images/species/gnetales",
+      "img": "",
       "level": 1,
       "points": 1,
       "extinct": false,
@@ -272,7 +275,7 @@ var CARD_DATA = {
       "id": 12,
       "count": 2,
       "name": "nymphaeales (water lily)",
-      "img": "images/species/water_lily",
+      "img": "",
       "level": 1,
       "points": 1,
       "extinct": false,
@@ -293,7 +296,7 @@ var CARD_DATA = {
       "id": 13,
       "count": 1,
       "name": "paleomattea",
-      "img": "images/species/paleomattea",
+      "img": "",
       "level": 1,
       "points": 1,
       "extinct": true,
@@ -314,7 +317,7 @@ var CARD_DATA = {
       "id": 14,
       "count": 2,
       "name": "ammonite",
-      "img": "images/species/ammonite",
+      "img": "",
       "level": 2,
       "points": 3,
       "extinct": true,
@@ -336,7 +339,7 @@ var CARD_DATA = {
       "id": 15,
       "count": 2,
       "name": "cockroaches",
-      "img": "images/species/cockroach",
+      "img": "",
       "level": 2,
       "points": 2,
       "extinct": false,
@@ -359,7 +362,7 @@ var CARD_DATA = {
       "id": 16,
       "count": 2,
       "name": "dragonfly",
-      "img": "images/species/dragonfly",
+      "img": "",
       "level": 2,
       "points": 2,
       "extinct": false,
@@ -381,7 +384,7 @@ var CARD_DATA = {
       "id": 17,
       "count": 1,
       "name": "water strider",
-      "img": "images/species/water_strider",
+      "img": "",
       "level": 2,
       "points": 3,
       "extinct": false,
@@ -404,7 +407,7 @@ var CARD_DATA = {
       "id": 18,
       "count": 1,
       "name": "waterscorpion",
-      "img": "images/species/waterscorpion",
+      "img": "",
       "level": 2,
       "points": 3,
       "extinct": false,
@@ -425,7 +428,7 @@ var CARD_DATA = {
       "id": 19,
       "count": 2,
       "name": "i don't think so",
-      "img": "images/events/decline",
+      "img": "",
       "level": null,
       "points": null,
       "extinct": false,
@@ -446,7 +449,7 @@ var CARD_DATA = {
       "id": 20,
       "count": 2,
       "name": "theropod attack",
-      "img": "images/events/therapod",
+      "img": "",
       "level": null,
       "points": null,
       "extinct": false,
@@ -492,7 +495,7 @@ var CARD_DATA = {
       "id": 22,
       "count": 1,
       "name": "aspidorhynchus",
-      "img": "images/species/aspidorhynchus",
+      "img": "",
       "level": 2,
       "points": 2,
       "extinct": true,
@@ -513,7 +516,7 @@ var CARD_DATA = {
       "id": 23,
       "count": 1,
       "name": "ischyodus",
-      "img": "images/species/ischyodus",
+      "img": "",
       "level": 2,
       "points": 2,
       "extinct": true,
@@ -536,7 +539,7 @@ var CARD_DATA = {
       "id": 24,
       "count": 1,
       "name": "lycoptera",
-      "img": "images/species/lycoptera",
+      "img": "",
       "level": 2,
       "points": 2,
       "extinct": true,
@@ -558,7 +561,7 @@ var CARD_DATA = {
       "id": 25,
       "count": 1,
       "name": "obaichthys",
-      "img": "images/species/obaichthys",
+      "img": "",
       "level": 2,
       "points": 3,
       "extinct": true,
@@ -579,7 +582,7 @@ var CARD_DATA = {
       "id": 26,
       "count": 1,
       "name": "anhanguera blittersdorffi",
-      "img": "images/species/anhanguera_blittersdorffi",
+      "img": "",
       "level": 3,
       "points": 5,
       "extinct": true,
@@ -600,7 +603,7 @@ var CARD_DATA = {
       "id": 27,
       "count": 1,
       "name": "dsungaripterus weii",
-      "img": "images/species/dsungaripterus_weii",
+      "img": "",
       "level": 3,
       "points": 5,
       "extinct": true,
@@ -621,7 +624,7 @@ var CARD_DATA = {
       "id": 28,
       "count": 1,
       "name": "nyctosaurus gracilis",
-      "img": "images/species/nyctosaurus_gracilis",
+      "img": "",
       "level": 3,
       "points": 4,
       "extinct": true,
@@ -642,7 +645,7 @@ var CARD_DATA = {
       "id": 29,
       "count": 1,
       "name": "pterodactylus antiquus",
-      "img": "images/species/pterodactylus_antiquus",
+      "img": "",
       "level": 3,
       "points": 4,
       "extinct": true,
@@ -663,7 +666,7 @@ var CARD_DATA = {
       "id": 30,
       "count": 1,
       "name": "rhamphorhynchus muensteri",
-      "img": "images/species/rhamphorhynchus_muensteri",
+      "img": "",
       "level": 3,
       "points": 4,
       "extinct": true,
@@ -684,7 +687,7 @@ var CARD_DATA = {
       "id": 31,
       "count": 1,
       "name": "scaphognathus",
-      "img": "images/species/scaphognathus",
+      "img": "",
       "level": 3,
       "points": 4,
       "extinct": true,
@@ -706,7 +709,7 @@ var CARD_DATA = {
       "id": 32,
       "count": 1,
       "name": "tapejara wellnhoferi",
-      "img": "images/species/tapejara_wellnhoferi",
+      "img": "",
       "level": 3,
       "points": 4,
       "extinct": true,
@@ -727,7 +730,7 @@ var CARD_DATA = {
       "id": 33,
       "count": 1,
       "name": "climate change",
-      "img": "images/events/climate_change",
+      "img": "",
       "level": null,
       "points": null,
       "extinct": false,
@@ -748,7 +751,7 @@ var CARD_DATA = {
       "id": 34,
       "count": 1,
       "name": "dead pterosaur",
-      "img": "images/events/dead_pterosaur",
+      "img": "",
       "level": null,
       "points": null,
       "extinct": false,
@@ -769,7 +772,7 @@ var CARD_DATA = {
       "id": 35,
       "count": 1,
       "name": "meteorite crash",
-      "img": "images/events/meteorite",
+      "img": "",
       "level": null,
       "points": null,
       "extinct": false,
@@ -790,7 +793,7 @@ var CARD_DATA = {
       "id": 36,
       "count": 1,
       "name": "migration",
-      "img": "images/events/migration",
+      "img": "",
       "level": null,
       "points": null,
       "extinct": false,
@@ -811,11 +814,93 @@ var CARD_DATA = {
       "id": 37,
       "count": 1,
       "name": "volcano",
-      "img": "images/events/volcano",
+      "img": "",
       "level": null,
       "points": null,
       "extinct": false,
       "type": "event"
     }
   ]
-}
+};
+
+ var GameTemplate = function() {
+
+     this.board = []; //10x10,
+     this.players = {
+         player1: {
+             hand: [],
+         },
+         player2: {
+             hand: [],
+         }
+     };
+     this.deck = [];
+     this.discard = [];
+ };
+
+//console.log(new GameTemplate());
+
+ var DinoGame = {
+           app: {
+             startGame:function() {
+               //create new game
+                DinoGame.model.game=new GameTemplate();
+                console.log(DinoGame);
+
+                //create deck of random cards (40)
+                for(var i=0;i<38;i++)
+                {
+                    DinoGame.model.game.deck.push(DinoGame.app.getCardFromDeck());
+                }               
+                //deal  player  hand
+                for(var i=0;i<6;i++)
+                {
+                  DinoGame.model.game.players.player1.hand.push(DinoGame.model.game.deck.pop());
+                }
+                DinoGame.model.game.board=[
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0]];
+                //sync with other player hand
+                  
+                //pick who's turn it is (random)
+                
+             },
+              getCardFromDeck:function() {
+                return  DinoGame.model.cards.pop();  
+              }
+           },
+           model:{
+             cards: CARD_DATA.cards, //load all cards
+             game:{}
+           },
+           dom:{}
+         };
+
+  
+//end game
+  //count scores
+  //displays who wins
+  //enables start game button
+  
+//draw card
+
+//move
+
+//discard
+
+//play event card
+
+//play creature card
+
+//remove card from board
+
+//end game  
+
+
+//DinoGame.app.startGame();
