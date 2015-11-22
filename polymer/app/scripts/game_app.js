@@ -25,6 +25,8 @@
                 DinoGame.app.updateFirebase(counterPartyUid, uid);
                 ref.child('game').child(authData.uid).on('value', function(snapshotgame) {
                     console.log('www', snapshotgame.val());
+                    DinoGame.app.updateGame(snapshotgame.val());
+                    DinoGame.app.renderGame();
                 });
             },
             initBoard: function(){
@@ -50,6 +52,16 @@
                 {
                   DinoGame.app.addCardToHand(DinoGame.app.drawCard());
                 }
+            },
+            updateGame: function(json_data){
+              DinoGame.model.game.deck = json_data.deck === undefined ? [] : json_data.deck;
+              DinoGame.model.game.board = json_data.board === undefined ? [] : json_data.board;
+              DinoGame.model.game.events = json_data.events === undefined ? [] : json_data.events;
+              DinoGame.model.game.hand = json_data.hand === undefined ? []: json_data.hand;
+              DinoGame.model.game.discard = json_data.discard === undefined ? [] : json_data.discard;
+              if (DinoGame.mode.game.board === []){
+                DinoGame.app.initBoard();
+              }
             },
             drawCard: function(){
                 DinoGame.model.game.deck.pop();
