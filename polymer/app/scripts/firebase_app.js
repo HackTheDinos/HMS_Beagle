@@ -44,7 +44,7 @@ var authData;
 
                      if (authData && authData.uid !== null && authData.uid !== item) {
                          str += (
-                             '<a href="#" onclick="DinoGame.app.startGame(\'' + item + '\',\'' + authData.uid + '\');">Game-' + snapshotconfig[item].name + '</a>' +
+                             '<a href="#" onclick="startGame(\'' + item + '\',\'' + authData.uid + '\');">Game-' + snapshotconfig[item].name + '</a>' +
                              //'uid: ' + item +
                              //' name: ' + snapshotconfig[item].name +
                              '<br>');
@@ -83,4 +83,8 @@ if (displayName) {
 
   ref.child('logins').child(authData.uid).push(object);
   ref.child('config').child(authData.uid).update(object);
+}
+
+function startGame(a,b){
+     DinoGame.app.startGame(a,b);
 }
