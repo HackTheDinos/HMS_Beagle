@@ -1,0 +1,49 @@
+body {
+  background-image: url("../images/board/wood.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+}
+
+img {
+  max-width:100%;
+  max-height:100%;
+  padding: 10px 10px 10px 10px;
+}
+
+td {
+  border: 2px solid white;
+  height: 70px;
+
+}
+
+.table {
+  /*max-width: 40%;
+  max-height: 60%;*/
+  /*background-color: blue;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;*/
+}
+
+.spacer {
+  margin: 20px;
+}
+
+.cardContainer {
+  border: 1px solid white;
+  width: 70%;
+  height: 70px;
+
+}
+
+.card{
+  float: right;
+}
+
+.grow {
+  transition: all .2s ease-in-out;
+}
+
+
+.grow:hover { transform: scale(7.0); }
