@@ -156,6 +156,7 @@
             updateFirebase: function(counterPartyUid, uid){
               var gameJson = DinoGame.app.gameStateToJson(counterPartyUid, uid);
               ref.child('game').child(authData.uid).set(gameJson);
+              ref.child('game').child(counterPartyUid).set(gameJson);
             },
             gameStateToJson: function(counterPartyUid, uid){
               return {
