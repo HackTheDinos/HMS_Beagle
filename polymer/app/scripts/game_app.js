@@ -14,15 +14,19 @@
 
  var DinoGame = {
            app: {
-            startGame:function() {
-               //create new game
-                DinoGame.model.game=new GameTemplate();
+            startGame: function(counterPartyUid, uid) {
+                console.log('qqq', counterPartyUid, uid);
+                //create new game
+                DinoGame.model.game = new GameTemplate();
                 console.log(DinoGame);
                 DinoGame.app.initDeck();
                 DinoGame.app.initHand();
                 DinoGame.app.initBoard();
-                DinoGame.app.updateFirebase();
-             },
+                DinoGame.app.updateFirebase(counterPartyUid, uid);
+                ref.child('game').child(authData.uid).on('value', function(snapshotgame) {
+                    console.log('www', snapshotgame.val());
+                });
+            },
             initBoard: function(){
                 DinoGame.model.game.board=[
                 [0,0,0,0,0,0,0,0],
@@ -149,12 +153,13 @@
               DinoGame.app.clearTurnState();
               DinoGame.app.updateFirebase();
             },
-            updateFirebase: function(){
-              var gameJson = DinoGame.app.gameStateToJson();
+            updateFirebase: function(counterPartyUid, uid){
+              var gameJson = DinoGame.app.gameStateToJson(counterPartyUid, uid);
               ref.child('game').child(authData.uid).set(gameJson);
             },
-            gameStateToJson: function(){
+            gameStateToJson: function(counterPartyUid, uid){
               return {
+                counterParty: counterPartyUid,
                 'board': DinoGame.model.game.board,
                 'deck': DinoGame.model.game.deck,
                 'discard': DinoGame.model.game.discard,
