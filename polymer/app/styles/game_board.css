@@ -46,17 +46,17 @@ p {
 }
 
 .grow {
-  transition: all .2s ease-in-out;
+  transition: all .5s ease-in-out;
   z-index: 1;
   position: relative;
 }
 
-.handCard .grow:hover {
+.handCard .grow-hover {
   transform: scale(10.0) translateX(1.5em);
   }
 
 
-.eventCard .grow:hover {
+.eventCard .grow-hover {
     transform: scale(10.0) translateX(-1.5em);
 }
 
