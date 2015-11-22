@@ -164,7 +164,6 @@
             clearTurnState: function(){
                 DinoGame.turnState.clickedId = undefined;
                 DinoGame.turnState.clickedType = undefined;
-                DinoGame.turnState.endTurn = false;
             },
             renderCard: function(card, is_event){
               if (is_event){
@@ -219,7 +218,6 @@
                   ){
                 DinoGame.app.removeCardFromGame(card.id);
                 DinoGame.app.addCardToEvents(card);
-                DinoGame.turnState.endTurn = true;
               }else{
                 DinoGame.app.setClickedCard(card);
               }
@@ -231,7 +229,6 @@
           },
           turnState: {
             clickedCard: undefined,
-            endTurn:false
           },
           dom:{}
   };
@@ -282,7 +279,6 @@ $('#board td').click(function(){
     var cellX = $(this).data('x');
     var cellY = $(this).data('y');
     DinoGame.app.addCardToBoard(card, cellX, cellY);
-    DinoGame.turnState.endTurn = true;
   }
 });
 
