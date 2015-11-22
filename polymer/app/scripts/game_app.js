@@ -84,7 +84,7 @@
                 'board': DinoGame.model.game.board,
                 'deck': DinoGame.model.game.deck,
                 'discard': DinoGame.model.game.discard,
-                'events': DinoGame.mode.game.events
+                'events': DinoGame.model.game.events
               };
             },
             clearTurnState: function(){
